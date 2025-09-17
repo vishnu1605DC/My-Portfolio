@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Vishnu Vardhan — Portfolio</title>
+  <meta name="description" content="Portfolio of Vishnu Vardhan — ASIC / DV engineer. Projects, skills, contact.">
+  <style>
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0f1724;--card:#0b1220;--accent:#d97706;--muted:#94a3b8;--glass: rgba(255,255,255,0.03);
+      --maxw:1100px;--ff:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial
+    }
+    html,body{height:100%;font-family:var(--ff);background:linear-gradient(180deg,#071028 0%, #071425 60%);color:#e6eef8}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+
+    /* Header */
+    header{position:sticky;top:10px;z-index:60;background:linear-gradient(180deg,rgba(11,18,28,0.6),transparent);backdrop-filter:blur(6px);border-radius:12px;padding:10px}
+    nav{display:flex;align-items:center;gap:18px;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ffb86b);display:flex;align-items:center;justify-content:center;font-weight:700;color:#072033}
+    .nav-links{display:flex;gap:12px}
+    .nav-links a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
+    .nav-links a:hover{color:#fff;background:var(--glass)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0}
+    .hero-left h1{font-size:36px;line-height:1.02;margin-bottom:8px}
+    .intro{color:var(--muted);margin-bottom:18px}
+    .cta{display:flex;gap:12px}
+    .btn{background:var(--accent);color:#072033;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.06);padding:12px 16px;border-radius:10px;color:var(--muted);text-decoration:none}
+
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:18px;border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    .profile-img{width:100%;height:340px;border-radius:10px;object-fit:contain;display:block;margin-bottom:14px}
+    .specs{display:flex;gap:12px;flex-wrap:wrap}
+    .spec{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;flex:1;min-width:120px;text-align:center}
+    .spec strong{display:block;font-size:18px}
+    
+    /* Section */
+    section{margin:36px 0;padding:22px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+    h2{margin-bottom:16px}
+
+section {
+    scroll-margin-top: 120px; /* adjust based on navbar height */
+  }
+  html {
+    scroll-behavior: smooth;
+/*scroll-padding-top: 20px; adjust if navbar height differs */
+}
+
+    /* Projects grid */
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{background:var(--card);padding:14px;border-radius:12px;min-height:160px;display:flex;flex-direction:column;gap:8px}
+    .card img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{background:var(--glass);padding:6px 8px;border-radius:8px;font-size:13px;color:var(--muted)}
+.projects-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.projects-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.projects {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  scrollbar-width: none; /* Hide scrollbar */
+}
+.projects::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 300px; /* show ~3 cards */
+  background: rgba(255, 255, 255, 0.05); /* ✅ subtle transparent background */
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* darker shadow to match theme */
+  padding: 1rem;
+  color: #fff; /* ensure text stays white */
+  backdrop-filter: blur(6px); /* glassy effect */
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+.scroll-btn.left { left: 10px; }
+.scroll-btn.right { right: 10px; }
+
+.desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* limit to 4 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: max-height 0.3s ease;
+}
+
+.desc.expanded {
+  -webkit-line-clamp: unset; /* remove clamp */
+  display: block;
+}
+
+.read-more-btn {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+
+    /* Skills */
+    .skills{display:flex;gap:18px;flex-wrap:wrap}
+    .skill{flex:1;min-width:220px}
+    .bar{height:12px;background:rgba(255,255,255,0.06);border-radius:8px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ffb86b);width:0}
+
+    /* Timeline/resume */
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .t-item{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .gallery img{width:100%;height:110px;object-fit:cover;border-radius:8px}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+
+    footer{padding:22px;text-align:center;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .projects{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width:640px){
+      .projects{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      nav{flex-direction:column;align-items:flex-start}
+    }
+
+    /* ✅ Fixes for layout centering on all screens */
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px;
+      width: 100%;
+    }
+
+    @media (max-width:980px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-left {
+        order: 2;
+      }
+      .hero-card {
+        max-width: 360px;
+        margin: 0 auto 20px;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* keeps spacing between items */
+}
+
+@media (max-width: 768px) {
+  .skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills {
+    grid-template-columns: 1fr;
+  }
+}
+
+    @media (max-width:640px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+/* Resume preview styling */
+.resume-preview {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.resume-preview:hover {
+  transform: scale(1.02);
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <div class="brand">
+          <div class="logo">VV</div>
+          <div>
+            <div style="font-weight:700">Vishnu Vardhan</div>
+            <div style="font-size:13px;color:var(--muted)">ASIC / DV Engineer • Portfolio</div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+ <section class="hero">
+  <div class="hero-left">
+    <h1>Hi — I'm Vishnu vardhan. I design and verify ASIC and IP blocks.</h1>
+    <p class="intro">Below are selected projects, skills and ways to contact me.</p>
+    <div class="cta">
+      <a class="btn" href="#contact">Hire me</a>
+      <a class="btn-ghost" href="https://github.com/vishnu1605DC?tab=repositories" target="_blank">See projects</a>
+    </div>
+  </div>
+
+  <aside class="hero-card">
+    <img class="profile-img" src="assets/photo.png" alt="Profile">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+
+      <div>
+        <div style="font-size:13px;color:var(--muted)">Location</div>
+        <strong>Bangalore</strong>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:13px;color:var(--muted)">Experience</div>
+        <strong>Fresher</strong>
+      </div>
+    </div>
+
+    <div class="specs">
+      <div class="spec"><strong>VLSI</strong><small style="color:var(--muted)">Design & Verification</small></div>
+      <div class="spec"><strong>Environment</strong><small style="color:var(--muted)">Questasim, Gvim, Cygwin</small></div>
+      <div class="spec"><strong>Programming</strong><small style="color:var(--muted)">C Programming, java</small></div>
+    </div>
+  </aside>
+</section>
+
+
+      <section id="about">
+        <h2>About me</h2>
+        <p style="color:var(--muted);margin-bottom:12px">I specialize in VLSI front-end design and verification. I have hands-on experience in Verilog, SystemVerilog, UVM, and am comfortable working with Cygwin, GVim, and QuestaSim in real-world verification environments. I’ve built and verified FIFO, RAM, AHB Lite, and DMA controller projects, and am currently part of the XCHIP Cohort SMP. Passionate about semiconductor tech, CPUs, GPUs, and automotive engineering. Always learning, always building!</p>
+        <ul style="color:var(--muted);margin-left:18px;list-style:disc">
+          <li>Expertise: Verilog, SystemVerilog, Universal Verification Methodolody, C Programming, Java, Basic Scripting </li>
+          <li>Tools: QuestaSim, Synopsys VCS (familiar), Xilinx Vivado, Intel Quartus II, RISC-V Steel toolchain</li>
+          <li>Interests: VLSI Design & Verification, Programming and Automation, Latest Tech Trends, Automobile Engineering and Car Tuning</li>
+        </ul>
+      </section>
+
+     <section id="projects">
+  <h2>Selected projects</h2>
+
+  <div class="projects-wrapper">
+    <button class="scroll-btn left" onclick="scrollProjects(-1)">&#10094;</button>
+
+    <div class="projects">
+  <!-- ✅ Project Cards with Read More -->
+  <article class="card">
+     <a href="https://github.com/vishnu1605DC/AHB-Lite" target="_blank">
+    <img src="assets/ahb.png" alt="Project 1">
+  </a>
+    <h3>AHB Lite Protocol</h3>
+    <p class="desc">
+      The module adheres to the AMBA 3 AHB-Lite standard, optimized for single-master configurations, as frequently used in microcontrollers and embedded systems. It features a full range of burst capabilities—fixed-length (INCR4, INCR8, INCR16) and variable-length INCR-mode bursts—and implements automatic pipelining with HTRANS, HBURST, HSIZE, and HREADY protocol signals.
+    </p>
+    <button class="read-more-btn">Read more</button>
+    <div class="tags"><span class="tag">SystemVerilog</span><span class="tag">UVM</span><span class="tag">QuestaSim</span></div>
+  </article>
+
+  <article class="card">
+    <a href="https://github.com/vishnu1605DC/64kb-Async-RAM" target="_blank">
+    <img src="assets/ram.png" alt="Project 2">
+  </a>
+    <p class="desc">
+      Successfully completed my first UVM-based verification project by designing and verifying a 64KB asynchronous RAM. This was a hands-on dive into UVM testbench development, with a deliberately simple DUT to help focus on building a robust verification environment from scratch. Developed a fully functional UVM testbench with 7 custom sequences and 4 test cases to cover all DUT signal behaviors.
+    </p>
+    <button class="read-more-btn">Read more</button>
+    <div class="tags"><span class="tag">SystemVerilog</span><span class="tag">UVM</span><span class="tag">Questasim</span></div>
+  </article>
+
+  <article class="card">
+     <a href="https://github.com/vishnu1605DC/SPI_master" target="_blank">
+    <img src="assets/spi.png" alt="Project 3">
+  </a>
+    <h3>SPI MASTER Design</h3>
+    <p class="desc">
+      Built an SPI master module capable of generating accurate SCLK signals for all combinations of CPOL and CPHA, making it fully compliant with standard SPI modes. Clock generation is handled using a counter-based method to derive a lower-frequency SCLK from a high-frequency system clock. Dynamically supports all SPI modes through configurable CPOL and CPHA.
+    </p>
+    <button class="read-more-btn">Read more</button>
+    <div class="tags"><span class="tag">SystemVerilog</span><span class="tag">EDA Playground</span></div>
+  </article>
+
+  <article class="card">
+     <a href="https://github.com/vishnu1605DC/E2E-SCB" target="_blank">
+    <img src="assets/scb.png" alt="Project 4">
+  </a>
+    <h3>E2E SCB</h3>
+    <p class="desc">
+      Designed a configurable class-based packet generator supporting 3 traffic patterns:  
+      1️⃣ All Same – identical addresses with varied data across instances  
+      2️⃣ Two Same – 2 common addresses, rest unique  
+      3️⃣ All Different – fully distinct address-data pairs across instances  
+      Built an associative memory table to visualize and track data transactions per address across instances. Integrated test control via .do file to pass packet count (n) and added partial automation with a .sh script for batch runs.
+    </p>
+    <button class="read-more-btn">Read more</button>
+    <div class="tags"><span class="tag">SystemVerilog</span><span class="tag">EDA</span><span class="tag">Questasim</span></div>
+  </article>
+
+  <article class="card">
+     <a href="https://github.com/vishnu1605DC/FIFO" target="_blank">
+    <img src="assets/fifo.png" alt="Project 5">
+  </a>
+    <h3>FIFO Modeling</h3>
+    <p class="desc">
+      Created a functional FIFO model to synchronize data between a fast transmitter and a slow receiver, using separate read and write clocks. This project focused on reliable data handling and control signal generation in asynchronous environments. Implemented a pointer-based FIFO with support for full, empty, overflow, and underflow status flags. FIFO memory structure: [7:0] mem [31:0] — 8-bit wide, 32-depth buffer. Verified functionality using a custom SystemVerilog testbench with constraints and randomizations.
+    </p>
+    <button class="read-more-btn">Read more</button>
+    <div class="tags"><span class="tag">SystemVerilog</span><span class="tag">UVM</span><span class="tag">Questasim</span></div>
+  </article>
+</div>
+
+<!-- Right scroll button -->
+<button class="scroll-btn right" onclick="scrollProjects(1)">&#10095;</button>
+
+  </div>
+</section>
+
+
+  <!-- ✅ Skills Section Start -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    
+    <div class="skill">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <strong>Verilog</strong><span style="color:var(--muted)">85%</span>
+      </div>
+      <div class="bar"><i style="width:85%"></i></div>
+    </div>
+
+    <div class="skill">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <strong>SystemVerilog</strong><span style="color:var(--muted)">90%</span>
+      </div>
+      <div class="bar"><i style="width:90%"></i></div>
+    </div>
+
+    <div class="skill">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <strong>UVM</strong><span style="color:var(--muted)">88%</span>
+      </div>
+      <div class="bar"><i style="width:88%"></i></div>
+    </div>
+
+    <div class="skill">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <strong>Simulation & STA</strong><span style="color:var(--muted)">85%</span>
+      </div>
+      <div class="bar"><i style="width:85%"></i></div>
+    </div>
+
+    <div class="skill">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <strong>Digital Circuits</strong><span style="color:var(--muted)">88%</span>
+      </div>
+      <div class="bar"><i style="width:88%"></i></div>
+    </div>
+
+    <div class="skill">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <strong>Analog Circuits</strong><span style="color:var(--muted)">75%</span>
+      </div>
+      <div class="bar"><i style="width:75%"></i></div>
+    </div>
+
+    <!-- 🔥 New Skills (3rd row) -->
+    <div class="skill">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <strong>C Programming</strong><span style="color:var(--muted)">95%</span>
+      </div>
+      <div class="bar"><i style="width:95%"></i></div>
+    </div>
+
+    <div class="skill">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <strong>Scripting</strong><span style="color:var(--muted)">75%</span>
+      </div>
+      <div class="bar"><i style="width:75%"></i></div>
+    </div>
+
+    <div class="skill">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <strong>OOP Concepts</strong><span style="color:var(--muted)">85%</span>
+      </div>
+      <div class="bar"><i style="width:85%"></i></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ✅ CSS for Grid Layout -->
+<style>
+  #skills {
+    margin: 36px 0;
+  }
+
+  #skills h2 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+    gap: 20px 40px; /* row-gap col-gap */
+  }
+
+  .skill {
+    background: #1e1e2f;
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .bar {
+    background: #333;
+    height: 6px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .bar i {
+    display: block;
+    height: 100%;
+    background: #ffb347;
+  }
+</style>
+<!-- ✅ Skills Section End -->
+
+
+
+      <section id="resume">
+        <h2>Experience & Education</h2>
+        <div class="timeline">
+          <div class="t-item">
+            <strong>Design and Verification Intern — Xchip Technologies</strong>
+            <div style="color:var(--muted);font-size:13px">Jun 2025 — Present</div>
+            <p style="color:var(--muted);margin-top:8px">Working on RISC V 32 core development and 3 Channeled DMA Controller with AHB Lite Bus.
+          </div>
+
+          <div class="t-item">
+            <strong> Bachelor of Engineering (BE)</strong>
+            <div style="color:var(--muted);font-size:13px">Sri Shakthi Institute of Engg and Technology • 2022-2026</div>
+            <p style="color:var(--muted);margin-top:8px">Relevant coursework: Digital and Analog Electronics, VLSI Design, ASIC Flow.</p>
+          </div>
+        </div>
+      </section>
+
+<!-- Resume Section -->
+<section id="resume" class="section">
+  <h2>Resume</h2>
+  <div class="resume-preview">
+    <iframe 
+      src="https://drive.google.com/file/d/1rddPpIuKriq-xw2IqnxxH0-sSFAkHjwP/preview" 
+      width="100%" height="400px" style="border:0;">
+    </iframe>
+  </div>
+  
+  <div style="text-align:center; margin-top:12px;">
+    <a class="btn" href="https://drive.google.com/file/d/1rddPpIuKriq-xw2IqnxxH0-sSFAkHjwP/view?usp=sharing" 
+       target="_blank" rel="noopener noreferrer">
+      🔗 View Full Resume
+    </a>
+  </div>
+</section>
+
+
+      
+
+     <section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <div>
+      <p style="color:var(--muted)">
+        Want to collaborate or hire me? Fill the form or email me directly at 
+         <a href="mailto:vardhank1234@gmail.com" style="color:var(--accent)">vardhank1234@gmail.com</a>.
+      </p>
+
+      <!-- Social Links -->
+      <div style="margin:12px 0; display:flex; gap:16px; font-size:18px;">
+        <a href="tel:+919902318115" target="_blank" style="text-decoration:none; color:var(--accent)">📞 +91 9902318115</a>
+        <a href="https://github.com/vishnu1605DC" target="_blank" style="text-decoration:none; color:var(--accent)">💻 GitHub</a>
+        <a href="https://www.linkedin.com/in/your-linkedin-id" target="_blank" style="text-decoration:none; color:var(--accent)">🔗 LinkedIn</a>
+      </div>
+
+       <form action="https://formspree.io/f/xdkljznz" method="POST">
+        <input type="email" name="email" placeholder="Your email" required>
+        <div style="height:8px"></div>
+        <textarea name="message" rows="6" placeholder="Tell me about the project" required></textarea>
+        <div style="height:8px"></div>
+        <button type="submit" class="btn">Send message</button>
+      </form>
+      
+    </div>
+
+    <aside style="background:var(--card);padding:14px;border-radius:12px">
+      <h3>Quick info</h3>
+      <p style="color:var(--muted)">
+        Open to remote work. Available for internships, full-time, or contract engagements across any location. Prefer roles in verification and RTL design.
+      </p>
+   <div style="margin-top:20px; display:flex; flex-direction:column; align-items:flex-start; gap:12px;"> <strong>Download CV</strong> <a class="btn-ghost" href="assets/vishnu%20vardhan%20resume%20latest.pdf" download="Vishnu_Vardhan_Resume.pdf" style="display:inline-block;">Download (PDF)</a> </div>
+
+
+    </aside>
+  </div>
+</section>
+
+    </main>
+
+    <footer>
+      © <span id="year"></span> Vishnu Vardhan
+    </footer>
+  </div>
+
+  <script>
+   document.getElementById('year').innerText = new Date().getFullYear();
+
+ function scrollProjects(direction) {
+  const container = document.querySelector('.projects');
+  const cardWidth = container.querySelector('.card').offsetWidth + 20; // card + gap
+  container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+}
+document.querySelectorAll('.read-more-btn').forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    const desc = btn.previousElementSibling;
+    desc.classList.toggle('expanded');
+    btn.textContent = desc.classList.contains('expanded') ? "Read less" : "Read more";
+  });
+});
+
+
+
+
+</script>
+
+ 
+</div>
+</body>
+</html>
