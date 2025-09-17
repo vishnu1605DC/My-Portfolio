@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Vishnu Vardhan — Portfolio</title>
   <meta name="description" content="Portfolio of Vishnu Vardhan — ASIC / DV engineer. Projects, skills, contact.">
   <style>
@@ -250,6 +250,66 @@ section {
 .resume-preview:hover {
   transform: scale(1.02);
 }
+
+
+.brand a {
+  text-decoration: none;   /* 🚫 remove underline */
+  color: white;           /* keep text white */
+  display: inline-block;  /* behave like div */
+}
+
+.brand a:hover {
+  color: var(--accent);   /* optional: change color on hover */
+}
+.logo {
+  background: var(--accent);   /* orange */
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  text-decoration: none;       /* no underline */
+  display: inline-block;
+}
+
+.name {
+  text-decoration: none;       /* remove underline */
+  color: white;                /* keep white */
+  margin-left: 0.8rem;         /* spacing from logo */
+  display: inline-block;
+}
+
+.logo:hover {
+  color: black;          /* turn VV text black */
+  background: var(--accent); /* keep the orange box */
+}
+.brand a {
+  text-decoration: none;
+  color: inherit;   /* inherit default white for text */
+}
+
+.brand a:hover {
+  color: white;     /* force no color change on hover for the whole link */
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--accent); /* orange */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.logo:hover {
+  color: black;          /* VV text turns black */
+  background: var(--accent); /* orange stays same */
+}
+
   </style>
 </head>
 <body>
@@ -257,7 +317,8 @@ section {
     <header>
       <nav>
         <div class="brand">
-          <div class="logo">VV</div>
+              <a href="#home" class="logo">VV</a>
+        <a href="#home" class="name">
           <div>
             <div style="font-weight:700">Vishnu Vardhan</div>
             <div style="font-size:13px;color:var(--muted)">ASIC / DV Engineer • Portfolio</div>
@@ -274,7 +335,7 @@ section {
     </header>
 
     <main>
- <section class="hero">
+ <section id="home" class="hero">
   <div class="hero-left">
     <h1>Hi — I'm Vishnu vardhan. I design and verify ASIC and IP blocks.</h1>
     <p class="intro">Below are selected projects, skills and ways to contact me.</p>
@@ -617,3 +678,4 @@ document.querySelectorAll('.read-more-btn').forEach((btn, index) => {
 </div>
 </body>
 </html>
+
