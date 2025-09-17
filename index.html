@@ -215,6 +215,25 @@ section {
         justify-content: center;
       }
     }
+@media (max-width: 640px) {
+  .skills {
+    grid-template-columns: 1fr; /* ✅ Force one per row on mobile */
+  }
+}
+/* Force single-column skills on small screens */
+@media (max-width: 640px) {
+  .skills {
+    display: grid;
+    grid-template-columns: 1fr !important; /* 🔥 Force 1 per row */
+    gap: 1rem;
+  }
+
+  .skill {
+    width: 100%; /* make each skill take full width */
+  }
+}
+
+
 
 /* Resume preview styling */
 .resume-preview {
